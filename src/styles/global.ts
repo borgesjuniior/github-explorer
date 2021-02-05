@@ -12,11 +12,11 @@ export default createGlobalStyle`
   #root {
     max-width: 960px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 4px 20px;
   }
 
   body {
-    background: #f0fafa url(${githubBackgroung}) no-repeat 70% top;
+    background: #999999 url(${githubBackgroung}) no-repeat 70% top;
     -webkit-font-smoothing: antialiased;
   }
 

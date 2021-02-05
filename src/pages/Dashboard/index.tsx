@@ -1,28 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FiChevronRight } from 'react-icons/fi';
 import { Title, Form, Repositories } from './styles';
+import api from '../../services/api';
 
 import githubLogo from '../../assets/githubLogo.svg'
 
+interface Repository {
+  full_name: string;
+  description: string;
+  owner: {
+    login: string;
+    avatar_url: string
+  }
+}
+
 const Dashboard: React.FC = () => {
+  const [ newRepo, setNewRepo] = useState('');
+  const [ repositories, setRepositories ] = useState<Repository[]>([]);
+
+  async function handleAddRepository(): Promise<void> {
+
+    const response = await api.get<Repository>(`repos/${newRepo}`);
+
+    const repository = response.data;
+
+    setRepositories([...repositories, repository]);
+    setNewRepo('');
+
+  }
+
   return (
   <>
     <img src={githubLogo} alt="Logo"/>
     <Title>Explore repositórios no Github</Title>
 
-    <Form action="">
-      <input placeholder="Digite o nome do repositório" />
+    <Form onSubmit={handleAddRepository}>
+      <input
+        placeholder="Digite o nome do repositório"
+        value={newRepo}
+        onChange={value => setNewRepo(value.target.value)}
+       />
       <button type="submit">Pesquisar</button>
     </Form>
 
     <Repositories>
-      <a href="#teste">
-        <img src="https://avatars.githubusercontent.com/u/26493851?s=460&u=174b576da4ee07b5efa42c5ac3ccbd8a8a861efb&v=4"
-         alt="Austin Mahone"/>
-        <div>
-          <strong>Júnior</strong>
-          <p>Hello World!</p>
-        </div>
-      </a>
+      {repositories.map(repository => (
+        <a key={repository.full_name} href="#teste">
+          <img src={repository.owner.avatar_url}
+             alt={repository.owner.login} />
+          <div>
+                <strong>{repository.full_name}</strong>
+                <p>{repository.description}</p>
+          </div>
+          <FiChevronRight size={20} />
+        </a>
+      ))}
     </Repositories>
     </>
   )

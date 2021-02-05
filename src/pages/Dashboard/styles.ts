@@ -6,7 +6,7 @@ export const Title = styled.h1`
   max-width: 450px;
   line-height: 56px;
 
-  margin-top: 80px;
+  margin-top: 4%;
 `;
 
 export const Form = styled.form`
@@ -41,25 +41,32 @@ button {
   &:hover {
     background: #04d340;
   }
-
 }
 
 `;
 
 export const Repositories = styled.div`
-  margin-top: 60px;
+  margin-top: 4%;
   max-width: 700px;
 
     a {
       background: #fff;
       border-radius: 5px;
       width: 100%;
-      padding: 24px;
-      display: block;
+      padding: 2%;
       text-decoration: none;
 
       display: flex;
       align-items: center;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateX(10px);
+      }
+
+      & + a {
+        margin-top: 1%;
+      }
 
       img {
         width: 64px;
@@ -68,18 +75,22 @@ export const Repositories = styled.div`
       }
 
       div {
-        margin-left: 16px;
+        margin: 0 16px;
+        flex: 1; //Ajustar ao tamanho do espaço disponível
 
         strong {
-          font-size: 20px;
+          font-size: 1rem;
           color: #3d3d4d;
         }
         p {
-          font-size: 18px;
+          font-size: 1rem;
           color: #a8a8b3;
           margin-top: 4px;
         }
       }
+      svg {
+          margin-left: auto;
+        }
 
     }
 
