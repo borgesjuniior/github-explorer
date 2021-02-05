@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface hasError {
+  hasError: boolean;
+}
 
 export const Title = styled.h1`
   font-size: 45px;
@@ -9,7 +13,7 @@ export const Title = styled.h1`
   margin-top: 4%;
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<hasError>` //passando a propriedade para dentro do componete estilizado
 margin-top: 40px;
 max-width: 700px;
 
@@ -22,6 +26,12 @@ input {
   border: 0;
   border-radius: 5px 0 0 5px;
   color: #3a3a3a;
+  border: 1px solid #fff;
+  border-right: 0;
+
+  ${(props) => props.hasError && css ` //Se for true será mostrado um css adicional
+    border-color: #cc0000;
+  `};
 
   &::placeholder {
     color: #a8a8b3;
@@ -94,4 +104,11 @@ export const Repositories = styled.div`
 
     }
 
+`;
+
+
+export const Error = styled.span`
+  display: block;
+  color: #cc0000;
+  margin-top: 1%;
 `;
