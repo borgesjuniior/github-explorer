@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 import { Title, Form, Repositories, Error } from './styles';
 import api from '../../services/api';
@@ -16,10 +16,30 @@ interface Repository {
 
 const Dashboard: React.FC = () => {
   const [ newRepo, setNewRepo] = useState('');
-  const [ repositories, setRepositories ] = useState<Repository[]>([]);
+  const [ repositories, setRepositories ] = useState<Repository[]>(() => {
+   const storagedRepo = localStorage.getItem('github:repository');
+
+    if(storagedRepo) {
+      return JSON.parse(storagedRepo);
+    }else {
+      return [];
+    }
+  });
   const [ inputError, setInputError ] = useState('');
 
-  async function handleAddRepository(): Promise<void> {
+  useEffect(() => {
+    /**
+     * Salva o um repositório no localstorage toda
+     * vez que a variável 'repositories'
+     * é modificada
+     */
+    localStorage.setItem('github:repository', JSON.stringify(repositories))
+  }, [repositories])
+
+  async function handleAddRepository(event: FormEvent<HTMLFormElement>): Promise<void> {
+
+    event.preventDefault(); //Desabilita o comportamento padrão do Form
+
     if(!inputError) {
       setInputError('Digite o autor/nome do repositório!');
       setNewRepo('');
