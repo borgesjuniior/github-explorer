@@ -69,17 +69,17 @@ interface Issue {
           </header>
             <ul>
               <li>
-                <strong>1234</strong>
+                <strong>{repository.stargazers_count}</strong>
                 <span>Starts</span>
               </li>
 
               <li>
-                <strong>34</strong>
+                <strong>{repository.forks_count}</strong>
                 <span>Forks</span>
               </li>
 
               <li>
-                <strong>44</strong>
+                <strong>{repository.open_issues_count}</strong>
                 <span>Issues abertas</span>
               </li>
           </ul>
