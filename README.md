@@ -1,7 +1,4 @@
 # Sobre o projeto
-
-https://wmazoni-sds1.netlify.app
-
 Github explorer é uma aplicação web que consiste em uma busca por repositórios, onde os dados sobre aquele determinado repositório são consumidos diretamente da api do Github e listados no app web, como número de issues, stars e forks...
 ## Layout web
 ![Web 1](https://github.com/borgesjuniior/github-explorer/blob/main/assets-github/Imagem1.png)
