@@ -1,16 +1,33 @@
-# Backend-node
+# Sobre o projeto
 
-## GITHUB EXPLORER
-Aplicação para buscar repositório e listar suas Issues .
+https://wmazoni-sds1.netlify.app
 
-**O que preciso para rodar a aplicação?**
+Github explorer é uma aplicação web que consiste em uma busca por repositórios, onde os dados sobre aquele determinado repositório são consumidos diretamente da api do Github e listados no app web, como número de issues, stars e forks...
+## Layout web
+![Web 1](https://github.com/borgesjuniior/github-explorer/blob/main/assets-github/Imagem1.png)
 
-- Nodejs
-- VSCode
+![Web 2](https://github.com/borgesjuniior/github-explorer/blob/main/assets-github/Imagem2.png)
+# Tecnologias utilizadas
+## Front end
+- HTML / CSS / JS / TypeScript
+- Styled-components
+- ReactJS
+# Como executar o projeto localmente
 
-- [x]  Buscar repositórios
-- [x]  Mostrar detalhes do repositório
+```bash
+# clonar repositório
+git clone https://github.com/borgesjuniior/github-explorer.git
 
-**Como rodar a aplicação localmente?**
-### Rode o comando npm start ou yarn start dentro da pasta do projeto
-### Assim que executado o comando uma nova aba será aberta no Browser
+# entrar na pasta do projeto
+cd github-explorer
+
+# Instalar as dependências
+yarn ou npm install
+
+# Executar o projeto
+yarn start ou npm start
+```
+# Autor
+Valdecy Júnior // Rocketseat
+
+https://www.linkedin.com/in/valdecy-j%C3%BAnior-7558b9184/
