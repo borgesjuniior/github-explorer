@@ -27,4 +27,4 @@ yarn start ou npm start
 # Autor
 Valdecy Júnior // Rocketseat
 
-https://www.linkedin.com/in/valdecy-j%C3%BAnior-7558b9184/
+https://www.linkedin.com/in/borgesjuniior/
